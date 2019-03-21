@@ -1,5 +1,5 @@
 import TwitchEbsTools from '../../src';
-import jwt, { JsonWebTokenError } from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 
 describe('validateToken() method', () => {
   test('should return payload for correctly signed token', () => {
@@ -17,6 +17,6 @@ describe('validateToken() method', () => {
     const incorrectToken = 'incorrect token';
     expect(() => {
       return new TwitchEbsTools(sampleSecret).validateToken(incorrectToken);
-    }).toThrow(JsonWebTokenError);
+    }).toThrow();
   });
 });
