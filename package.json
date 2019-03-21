@@ -1,8 +1,8 @@
 {
   "name": "twitch-ebs-tools",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Helper functions for Twitch Extension Backend Services (EBS)",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "jest",
     "dev": "tsc -w",
