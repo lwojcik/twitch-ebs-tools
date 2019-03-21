@@ -1,12 +1,12 @@
 import * as jwt from 'jsonwebtoken';
 
 export interface TwitchPayload {
-  exp: Date;
-  opaque_user_id: string;
-  channel_id: string;
-  role: string;
-  is_unliked: boolean;
-  pubsub_perms: {
+  readonly exp: Date;
+  readonly opaque_user_id: string;
+  readonly channel_id: string;
+  readonly role: string;
+  readonly is_unliked: boolean;
+  readonly pubsub_perms: {
     readonly listen?: ReadonlyArray<string>;
     readonly send?: ReadonlyArray<string>;
   };
