@@ -1,5 +1,24 @@
 import * as jwt from 'jsonwebtoken';
-import * as types from './types';
+
+export interface TwitchPayload {
+  exp: Date;
+  opaque_user_id: string;
+  channel_id: string;
+  role: string;
+  is_unliked: boolean;
+  pubsub_perms: {
+    readonly listen?: ReadonlyArray<string>;
+    readonly send?: ReadonlyArray<string>;
+  };
+}
+
+export type TwitchToken = string;
+
+export type TwitchChannelId = string | number;
+
+export type TwitchRole = 'broadcaster' | 'viewer' | string;
+
+export type TwitchRoles = ReadonlyArray<TwitchRole>;
 
 /**
  * Twitch EBS toolset class.
@@ -23,9 +42,9 @@ export default class TwitchEbsTools {
    * @returns Decoded payload for valid token or JSONWebTokenError for invalid token
    *
    */
-  validateToken(token: types.TwitchToken): types.TwitchPayload | jwt.JsonWebTokenError {
+  validateToken(token: TwitchToken): TwitchPayload | jwt.JsonWebTokenError {
     try {
-      return <types.TwitchPayload>jwt.verify(token, Buffer.from(this.secret, 'base64'));
+      return <TwitchPayload>jwt.verify(token, Buffer.from(this.secret, 'base64'));
     } catch (error) {
       throw new jwt.JsonWebTokenError('invalid signature');
     }
@@ -39,7 +58,7 @@ export default class TwitchEbsTools {
    * @returns true for Twitch payload containing valid channel id, false for invalid or no channel id
    *
    */
-  static verifyChannelId(payload: types.TwitchPayload, channelId: types.TwitchChannelId): boolean {
+  static verifyChannelId(payload: TwitchPayload, channelId: TwitchChannelId): boolean {
     if (payload && payload.channel_id) {
       return payload.channel_id === channelId.toString();
     }
@@ -53,7 +72,7 @@ export default class TwitchEbsTools {
    * @returns true for Twitch payload containing valid expiry date, false for expired payload
    *
    */
-  static verifyTokenNotExpired(payload: types.TwitchPayload): boolean {
+  static verifyTokenNotExpired(payload: TwitchPayload): boolean {
     const epochTimeNowInSeconds = <Date>(<any>Math.round(new Date().getTime() / 1000));
     if (payload && payload.exp) {
       return epochTimeNowInSeconds <= payload.exp;
@@ -69,7 +88,7 @@ export default class TwitchEbsTools {
    * @returns true for Twitch payload containing valid role, false for payload with no or invalid role
    *
    */
-  static verifyRole(payload: types.TwitchPayload, role: types.TwitchRole): boolean {
+  static verifyRole(payload: TwitchPayload, role: TwitchRole): boolean {
     if (payload && payload.role) {
       return payload.role === role;
     }
@@ -86,9 +105,9 @@ export default class TwitchEbsTools {
    *
    */
   static verifyChannelIdAndRole(
-    payload: types.TwitchPayload,
-    channelId: types.TwitchChannelId,
-    role: types.TwitchRole,
+    payload: TwitchPayload,
+    channelId: TwitchChannelId,
+    role: TwitchRole,
   ): boolean {
     return this.verifyChannelId(payload, channelId) && this.verifyRole(payload, role);
   }
@@ -100,7 +119,7 @@ export default class TwitchEbsTools {
    * @returns true for Twitch payload containing 'broadcaster' role, false for invalid payloads
    *
    */
-  static verifyBroadcaster(payload: types.TwitchPayload): boolean {
+  static verifyBroadcaster(payload: TwitchPayload): boolean {
     return this.verifyRole(payload, 'broadcaster');
   }
 
@@ -111,7 +130,7 @@ export default class TwitchEbsTools {
    * @returns true for Twitch payload containing 'broadcaster' or 'viewer' role, false for invalid payloads
    *
    */
-  static verifyViewerOrBroadcaster(payload: types.TwitchPayload): boolean {
+  static verifyViewerOrBroadcaster(payload: TwitchPayload): boolean {
     return this.verifyRole(payload, 'broadcaster') || this.verifyRole(payload, 'viewer');
   }
 
@@ -123,15 +142,15 @@ export default class TwitchEbsTools {
    *
    */
   validatePermission(
-    token: types.TwitchToken,
-    channelId: types.TwitchChannelId,
-    roles: types.TwitchRole | types.TwitchRoles,
+    token: TwitchToken,
+    channelId: TwitchChannelId,
+    roles: TwitchRole | TwitchRoles,
   ): boolean {
     try {
-      const payload = <types.TwitchPayload>this.validateToken(token);
+      const payload = <TwitchPayload>this.validateToken(token);
       const verifiedRole = Array.isArray(roles)
-        ? roles.some(role => TwitchEbsTools.verifyRole(payload, role as types.TwitchRole))
-        : TwitchEbsTools.verifyRole(payload, roles as types.TwitchRole);
+        ? roles.some(role => TwitchEbsTools.verifyRole(payload, role as TwitchRole))
+        : TwitchEbsTools.verifyRole(payload, roles as TwitchRole);
 
       return (
         TwitchEbsTools.verifyChannelId(payload, channelId) &&
@@ -143,5 +162,3 @@ export default class TwitchEbsTools {
     }
   }
 }
-
-export { types };
