@@ -1,0 +1,51 @@
+{
+  "name": "twitch-ebs-tools",
+  "version": "0.0.1",
+  "description": "Helper functions for Twitch Extension Backend Services (EBS)",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "tsc -w",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint --project tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukemnet/twitch-ebs-tools.git"
+  },
+  "keywords": [
+    "twitch",
+    "twitch",
+    "extension",
+    "tools",
+    "jwt"
+  ],
+  "author": {
+    "name": "Łukasz Wójcik",
+    "url": "https://www.lukem.net/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lukemnet/twitch-ebs-tools/issues"
+  },
+  "homepage": "https://github.com/lukemnet/twitch-ebs-tools#readme",
+  "dependencies": {
+    "jsonwebtoken": "8.5.1"
+  },
+  "devDependencies": {
+    "@types/jest": "24.0.11",
+    "@types/jsonwebtoken": "8.3.2",
+    "jest": "24.5.0",
+    "jest-each": "24.5.0",
+    "prettier": "1.16.4",
+    "ts-jest": "24.0.0",
+    "tslint": "5.14.0",
+    "tslint-config-airbnb": "5.11.1",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-eslint-rules": "5.4.0",
+    "tslint-immutable": "5.5.0",
+    "tslint-plugin-prettier": "2.0.1",
+    "typescript": "3.3.4000"
+  }
+}
