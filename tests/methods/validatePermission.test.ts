@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import TwitchEbs from '../../src';
+import TwitchEbsTools from '../../src';
 import { TwitchToken } from '../../src/types';
 
 describe('validatePermission() method', () => {
@@ -7,7 +7,7 @@ describe('validatePermission() method', () => {
     const invalidToken = 'invalid token' as TwitchToken;
 
     expect(
-      new TwitchEbs('irrelevant secret').validatePermission(invalidToken, '123', 'viewer'),
+      new TwitchEbsTools('irrelevant secret').validatePermission(invalidToken, '123', 'viewer'),
     ).toEqual(false);
   });
 
@@ -25,7 +25,11 @@ describe('validatePermission() method', () => {
     const sampleRole = 'viewer';
 
     expect(
-      new TwitchEbs('some secret').validatePermission(sampleToken, invalidChannelId, sampleRole),
+      new TwitchEbsTools('some secret').validatePermission(
+        sampleToken,
+        invalidChannelId,
+        sampleRole,
+      ),
     ).toEqual(false);
   });
 
@@ -43,7 +47,11 @@ describe('validatePermission() method', () => {
     const invalidRole = 'broadcaster';
 
     expect(
-      new TwitchEbs('some secret').validatePermission(sampleToken, sampleChannelId, invalidRole),
+      new TwitchEbsTools('some secret').validatePermission(
+        sampleToken,
+        sampleChannelId,
+        invalidRole,
+      ),
     ).toEqual(false);
   });
 
@@ -61,7 +69,11 @@ describe('validatePermission() method', () => {
     const invalidRoles = ['not_broadcaster', 'not_viewer'];
 
     expect(
-      new TwitchEbs('some secret').validatePermission(sampleToken, sampleChannelId, invalidRoles),
+      new TwitchEbsTools('some secret').validatePermission(
+        sampleToken,
+        sampleChannelId,
+        invalidRoles,
+      ),
     ).toEqual(false);
   });
 
@@ -80,7 +92,11 @@ describe('validatePermission() method', () => {
     const validRoles = ['viewer', 'broadcaster'];
 
     expect(
-      new TwitchEbs('some secret').validatePermission(sampleToken, sampleChannelId, validRoles),
+      new TwitchEbsTools('some secret').validatePermission(
+        sampleToken,
+        sampleChannelId,
+        validRoles,
+      ),
     ).toEqual(true);
   });
 });

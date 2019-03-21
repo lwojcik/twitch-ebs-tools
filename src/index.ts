@@ -6,10 +6,10 @@ import * as types from './types';
  *
  * Methods with names starting with 'validate' require class initialization.
  * Methods with names starting with 'verify' are static methods and do not require
- * TwitchEbs class to be initialized.
+ * TwitchEbsTools class to be initialized.
  *
  */
-export default class TwitchEbs {
+export default class TwitchEbsTools {
   readonly secret: string;
 
   constructor(secret: string) {
@@ -130,12 +130,12 @@ export default class TwitchEbs {
     try {
       const payload = <types.TwitchPayload>this.validateToken(token);
       const verifiedRole = Array.isArray(roles)
-        ? roles.some(role => TwitchEbs.verifyRole(payload, role as types.TwitchRole))
-        : TwitchEbs.verifyRole(payload, roles as types.TwitchRole);
+        ? roles.some(role => TwitchEbsTools.verifyRole(payload, role as types.TwitchRole))
+        : TwitchEbsTools.verifyRole(payload, roles as types.TwitchRole);
 
       return (
-        TwitchEbs.verifyChannelId(payload, channelId) &&
-        TwitchEbs.verifyTokenNotExpired(payload) &&
+        TwitchEbsTools.verifyChannelId(payload, channelId) &&
+        TwitchEbsTools.verifyTokenNotExpired(payload) &&
         verifiedRole
       );
     } catch (error) {

@@ -1,4 +1,4 @@
-import TwitchEbs from '../../src';
+import TwitchEbsTools from '../../src';
 import { TwitchPayload } from '../../src/types';
 
 describe('verifyTokenNotExpired() static method', () => {
@@ -9,7 +9,7 @@ describe('verifyTokenNotExpired() static method', () => {
       exp,
     }) as TwitchPayload;
 
-    expect(TwitchEbs.verifyTokenNotExpired(samplePayload)).toEqual(true);
+    expect(TwitchEbsTools.verifyTokenNotExpired(samplePayload)).toEqual(true);
   });
 
   test('returns false for expired exp value', () => {
@@ -18,12 +18,12 @@ describe('verifyTokenNotExpired() static method', () => {
       exp,
     }) as TwitchPayload;
 
-    expect(TwitchEbs.verifyTokenNotExpired(expiredPayload)).toEqual(false);
+    expect(TwitchEbsTools.verifyTokenNotExpired(expiredPayload)).toEqual(false);
   });
 
   test('returns false for invalid payload', () => {
     const invalidPayload = {} as TwitchPayload;
 
-    expect(TwitchEbs.verifyTokenNotExpired(invalidPayload)).toEqual(false);
+    expect(TwitchEbsTools.verifyTokenNotExpired(invalidPayload)).toEqual(false);
   });
 });

@@ -1,4 +1,4 @@
-import TwitchEbs from '../../src';
+import TwitchEbsTools from '../../src';
 import { TwitchPayload } from '../../src/types';
 
 describe('verifyChannelId() static method', () => {
@@ -8,7 +8,7 @@ describe('verifyChannelId() static method', () => {
     } as TwitchPayload;
     const sampleChannelId = '123';
 
-    expect(TwitchEbs.verifyChannelId(samplePayload, sampleChannelId)).toEqual(true);
+    expect(TwitchEbsTools.verifyChannelId(samplePayload, sampleChannelId)).toEqual(true);
   });
 
   test('returns false for incorrect channel id', () => {
@@ -17,13 +17,13 @@ describe('verifyChannelId() static method', () => {
     } as TwitchPayload;
     const incorrectChannelId = 456;
 
-    expect(TwitchEbs.verifyChannelId(samplePayload, incorrectChannelId)).toEqual(false);
+    expect(TwitchEbsTools.verifyChannelId(samplePayload, incorrectChannelId)).toEqual(false);
   });
 
   test('returns false for invalid payload', () => {
     const invalidPayload = {} as TwitchPayload;
     const irrelevantChannelId = '789';
 
-    expect(TwitchEbs.verifyChannelId(invalidPayload, irrelevantChannelId)).toEqual(false);
+    expect(TwitchEbsTools.verifyChannelId(invalidPayload, irrelevantChannelId)).toEqual(false);
   });
 });

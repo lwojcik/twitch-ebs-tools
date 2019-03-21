@@ -1,42 +1,37 @@
-import TwitchEbs from '../src';
+import TwitchEbsTools from '../src';
 
-describe('TwitchEbs class', () => {
+describe('TwitchEbsTools class', () => {
   test('should be defined', () => {
-    expect(TwitchEbs).toBeDefined();
+    expect(TwitchEbsTools).toBeDefined();
   });
-  test('should define verifyToken() method', () => {
-    expect(new TwitchEbs('secret').validateToken).toBeDefined;
+  test('should define validateToken() method', () => {
+    expect(new TwitchEbsTools('secret').validateToken).toBeDefined;
   });
-
-  test('should define validateTokenAsync() method', () => {
-    expect(new TwitchEbs('secret').validateTokenAsync).toBeDefined;
-  });
-
   test('should define verifyChannelId() static method', () => {
-    expect(TwitchEbs.verifyChannelId).toBeDefined;
+    expect(TwitchEbsTools.verifyChannelId).toBeDefined;
   });
 
   test('should define verifyTokenNotExpired() static method', () => {
-    expect(TwitchEbs.verifyTokenNotExpired).toBeDefined;
+    expect(TwitchEbsTools.verifyTokenNotExpired).toBeDefined;
   });
 
   test('should define verifyRole() static method', () => {
-    expect(TwitchEbs.verifyRole).toBeDefined;
+    expect(TwitchEbsTools.verifyRole).toBeDefined;
   });
 
   test('should define verifyChannelIdAndRole() static method', () => {
-    expect(TwitchEbs.verifyChannelIdAndRole).toBeDefined;
+    expect(TwitchEbsTools.verifyChannelIdAndRole).toBeDefined;
   });
 
   test('should define verifyBroadcaster() static method', () => {
-    expect(TwitchEbs.verifyBroadcaster).toBeDefined;
+    expect(TwitchEbsTools.verifyBroadcaster).toBeDefined;
   });
 
   test('should define verifyViewerOrBroadcaster() static method', () => {
-    expect(TwitchEbs.verifyViewerOrBroadcaster).toBeDefined;
+    expect(TwitchEbsTools.verifyViewerOrBroadcaster).toBeDefined;
   });
 
-  test('should define validateRolePermission() method', () => {
-    expect(new TwitchEbs('secret').validateRolePermission).toBeDefined;
+  test('should define validatePermission() method', () => {
+    expect(new TwitchEbsTools('secret').validatePermission).toBeDefined;
   });
 });

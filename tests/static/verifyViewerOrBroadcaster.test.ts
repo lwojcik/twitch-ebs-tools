@@ -1,4 +1,4 @@
-import TwitchEbs from '../../src';
+import TwitchEbsTools from '../../src';
 import { TwitchPayload } from '../../src/types';
 
 describe('verifyViewerOrBroadcaster() static method', () => {
@@ -7,7 +7,7 @@ describe('verifyViewerOrBroadcaster() static method', () => {
       role: 'broadcaster',
     } as TwitchPayload;
 
-    expect(TwitchEbs.verifyViewerOrBroadcaster(samplePayload)).toEqual(true);
+    expect(TwitchEbsTools.verifyViewerOrBroadcaster(samplePayload)).toEqual(true);
   });
 
   test('returns true for correct viewer role', () => {
@@ -15,7 +15,7 @@ describe('verifyViewerOrBroadcaster() static method', () => {
       role: 'viewer',
     } as TwitchPayload;
 
-    expect(TwitchEbs.verifyViewerOrBroadcaster(samplePayload)).toEqual(true);
+    expect(TwitchEbsTools.verifyViewerOrBroadcaster(samplePayload)).toEqual(true);
   });
 
   test('returns false for incorrect role', () => {
@@ -23,6 +23,6 @@ describe('verifyViewerOrBroadcaster() static method', () => {
       role: 'incorrect role',
     } as TwitchPayload;
 
-    expect(TwitchEbs.verifyViewerOrBroadcaster(incorrectPayload)).toEqual(false);
+    expect(TwitchEbsTools.verifyViewerOrBroadcaster(incorrectPayload)).toEqual(false);
   });
 });

@@ -1,4 +1,4 @@
-import TwitchEbs from '../../src';
+import TwitchEbsTools from '../../src';
 import jwt, { JsonWebTokenError } from 'jsonwebtoken';
 
 describe('validateToken() method', () => {
@@ -9,14 +9,14 @@ describe('validateToken() method', () => {
       noTimestamp: true,
     });
 
-    expect(new TwitchEbs(sampleSecret).validateToken(validToken)).toEqual(samplePayload);
+    expect(new TwitchEbsTools(sampleSecret).validateToken(validToken)).toEqual(samplePayload);
   });
 
   test('should throw JsonWebTokenError for incorrect token', () => {
     const sampleSecret = 'some secret';
     const incorrectToken = 'incorrect token';
     expect(() => {
-      return new TwitchEbs(sampleSecret).validateToken(incorrectToken);
+      return new TwitchEbsTools(sampleSecret).validateToken(incorrectToken);
     }).toThrow(JsonWebTokenError);
   });
 });

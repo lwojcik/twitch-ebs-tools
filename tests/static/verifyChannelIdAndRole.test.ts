@@ -1,4 +1,4 @@
-import TwitchEbs from '../../src';
+import TwitchEbsTools from '../../src';
 import { TwitchPayload } from '../../src/types';
 
 describe('verifyChannelIdAndRole() static method', () => {
@@ -10,9 +10,9 @@ describe('verifyChannelIdAndRole() static method', () => {
     const sampleChannelId = '123';
     const sampleRole = 'broadcaster';
 
-    expect(TwitchEbs.verifyChannelIdAndRole(samplePayload, sampleChannelId, sampleRole)).toEqual(
-      true,
-    );
+    expect(
+      TwitchEbsTools.verifyChannelIdAndRole(samplePayload, sampleChannelId, sampleRole),
+    ).toEqual(true);
   });
 
   test('returns false for correct channel id and incorrect role', () => {
@@ -23,9 +23,9 @@ describe('verifyChannelIdAndRole() static method', () => {
     const sampleChannelId = '123';
     const incorrectRole = 'viewer';
 
-    expect(TwitchEbs.verifyChannelIdAndRole(samplePayload, sampleChannelId, incorrectRole)).toEqual(
-      false,
-    );
+    expect(
+      TwitchEbsTools.verifyChannelIdAndRole(samplePayload, sampleChannelId, incorrectRole),
+    ).toEqual(false);
   });
 
   test('returns false for incorrect channel id and correct role', () => {
@@ -36,9 +36,9 @@ describe('verifyChannelIdAndRole() static method', () => {
     const incorrectChannelId = '456';
     const sampleRole = 'broadcaster';
 
-    expect(TwitchEbs.verifyChannelIdAndRole(samplePayload, incorrectChannelId, sampleRole)).toEqual(
-      false,
-    );
+    expect(
+      TwitchEbsTools.verifyChannelIdAndRole(samplePayload, incorrectChannelId, sampleRole),
+    ).toEqual(false);
   });
 
   test('returns false for incorrect channel id and incorrect role', () => {
@@ -50,7 +50,7 @@ describe('verifyChannelIdAndRole() static method', () => {
     const incorrectRole = 'viewer';
 
     expect(
-      TwitchEbs.verifyChannelIdAndRole(samplePayload, incorrectChannelId, incorrectRole),
+      TwitchEbsTools.verifyChannelIdAndRole(samplePayload, incorrectChannelId, incorrectRole),
     ).toEqual(false);
   });
 });
