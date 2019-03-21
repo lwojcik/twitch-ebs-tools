@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import TwitchEbsTools from '../../src';
-import { TwitchToken } from '../../src/types';
+import { TwitchToken } from '../../src/index';
 
 describe('validatePermission() method', () => {
   test('should return false for invalid token', () => {
