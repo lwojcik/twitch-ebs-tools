@@ -42,11 +42,11 @@ export default class TwitchEbsTools {
    * @returns Decoded payload for valid token or JSONWebTokenError for invalid token
    *
    */
-  validateToken(token: TwitchToken): TwitchPayload | jwt.JsonWebTokenError {
+  validateToken(token: TwitchToken): TwitchPayload | Error {
     try {
       return <TwitchPayload>jwt.verify(token, Buffer.from(this.secret, 'base64'));
     } catch (error) {
-      throw new jwt.JsonWebTokenError('invalid signature');
+      throw new Error('invalid signature');
     }
   }
 
