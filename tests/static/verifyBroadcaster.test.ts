@@ -1,5 +1,4 @@
-import TwitchEbsTools from '../../src';
-import { TwitchPayload } from '../../src/types';
+import { default as TwitchEbsTools, TwitchPayload } from '../../src';
 
 describe('verifyBroadcaster() static method', () => {
   test('returns true for correct broadcaster role', () => {
