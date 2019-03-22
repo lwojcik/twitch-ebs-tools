@@ -1,24 +1,6 @@
-import * as jwt from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 
-export interface TwitchPayload {
-  readonly exp: Date;
-  readonly opaque_user_id: string;
-  readonly channel_id: string;
-  readonly role: string;
-  readonly is_unliked: boolean;
-  readonly pubsub_perms: {
-    readonly listen?: ReadonlyArray<string>;
-    readonly send?: ReadonlyArray<string>;
-  };
-}
-
-export type TwitchToken = string;
-
-export type TwitchChannelId = string | number;
-
-export type TwitchRole = 'broadcaster' | 'viewer' | string;
-
-export type TwitchRoles = ReadonlyArray<TwitchRole>;
+import { TwitchToken, TwitchPayload, TwitchChannelId, TwitchRole, TwitchRoles } from './types';
 
 /**
  * Twitch EBS toolset class.
@@ -28,7 +10,8 @@ export type TwitchRoles = ReadonlyArray<TwitchRole>;
  * TwitchEbsTools class to be initialized.
  *
  */
-export default class TwitchEbsTools {
+
+export = class TwitchEbsTools {
   readonly secret: string;
 
   constructor(secret: string) {
@@ -161,4 +144,4 @@ export default class TwitchEbsTools {
       return false;
     }
   }
-}
+};

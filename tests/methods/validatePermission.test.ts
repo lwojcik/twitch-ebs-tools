@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import TwitchEbsTools from '../../src';
-import { TwitchToken } from '../../src/index';
+import { TwitchToken } from '../../src/types';
 
 describe('validatePermission() method', () => {
   test('should return false for invalid token', () => {
@@ -66,7 +66,7 @@ describe('validatePermission() method', () => {
       Buffer.from('some secret', 'base64'),
     ) as TwitchToken;
 
-    const invalidRoles = ['not_broadcaster', 'not_viewer'];
+    const invalidRoles = ['not_broadcaster', 'not_viewer'] as ReadonlyArray<string>;
 
     expect(
       new TwitchEbsTools('some secret').validatePermission(
@@ -89,7 +89,7 @@ describe('validatePermission() method', () => {
 
     const sampleChannelId = '123';
 
-    const validRoles = ['viewer', 'broadcaster'];
+    const validRoles = ['viewer', 'broadcaster'] as ReadonlyArray<string>;
 
     expect(
       new TwitchEbsTools('some secret').validatePermission(

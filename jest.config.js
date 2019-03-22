@@ -18,9 +18,10 @@ module.exports = {
   "collectCoverage": true,
   "collectCoverageFrom": [
     "**/src/**.{js,jsx,ts,tsx}",
-    "!**/*.{d.ts}",
+    "!**/**.{d.ts}",
+    "!src/**/*.d.ts",
     "!**/node_modules/**",
-    "!**/dist/**"
+    "!**/dist/**",
   ],
   "automock": false,
   // "coverageThreshold": {
