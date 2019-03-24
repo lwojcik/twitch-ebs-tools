@@ -1,7 +1,7 @@
 {
   "name": "twitch-ebs-tools",
-  "version": "0.0.8",
-  "description": "Helper functions for Twitch Extension Backend Services (EBS)",
+  "version": "1.0.0",
+  "description": "Useful functions for Twitch Extension Backend Services (EBS)",
   "main": "dist/index.js",
   "scripts": {
     "test": "jest",
@@ -16,9 +16,10 @@
   },
   "keywords": [
     "twitch",
-    "twitch",
     "extension",
     "tools",
+    "ebs",
+    "backend",
     "jwt"
   ],
   "author": {
