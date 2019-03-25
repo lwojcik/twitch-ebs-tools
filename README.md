@@ -42,7 +42,7 @@ const validChannelId = TwitchEbsTools.verifyChannelId(payload, '123456789');
 // true / false
 ```
 
-### validatePermission(token, channelId, roles)
+### validateToken(token)
 
 Validates Twitch token by passing it to [verify](https://www.npmjs.com/package/jsonwebtoken#jwtverifytoken-secretorpublickey-options-callback) method of `jsonwebtoken`. Returns decoded Twitch payload or throws an error for invalid token.
 
