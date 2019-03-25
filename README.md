@@ -5,6 +5,7 @@
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/17imjehmrnt1j3eg/branch/master?svg=true)](https://ci.appveyor.com/project/lwojcik/twitch-ebs-tools/branch/master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/975f0ed290bbe152a5c9/maintainability)](https://codeclimate.com/github/lukemnet/twitch-ebs-tools/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/975f0ed290bbe152a5c9/test_coverage)](https://codeclimate.com/github/lukemnet/twitch-ebs-tools/test_coverage)
+[![Greenkeeper badge](https://badges.greenkeeper.io/lukemnet/twitch-ebs-tools.svg)](https://greenkeeper.io/)
 
 Pack of useful functions for Twitch Extension Backend Services (EBS). It provides Twitch JWT verification methods and various validation strategies.
 
