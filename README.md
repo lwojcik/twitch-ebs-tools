@@ -6,7 +6,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/975f0ed290bbe152a5c9/maintainability)](https://codeclimate.com/github/lukemnet/twitch-ebs-tools/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/975f0ed290bbe152a5c9/test_coverage)](https://codeclimate.com/github/lukemnet/twitch-ebs-tools/test_coverage)
 
-Useful functions for Twitch Extension Backend Services (EBS). Right now it mostly provides Twitch JWT verification methods and various validation strategies.
+Pack of useful functions for Twitch Extension Backend Services (EBS). It provides Twitch JWT verification methods and various validation strategies.
 
 Primarily intended as a backend for a [Fastify plugin](https://www.npmjs.com/package/fastify-twitch-ebs-tools) for my [StarCraft II Twitch extension](https://www.twitch.tv/ext/wg56zk271bqja047pknv3pk65m0rbr-1.1.0), it can also be used as a standalone package or ported to other Node servers. Internally it uses [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) for validating JWT tokens issued by Twitch.
 
@@ -122,7 +122,7 @@ const TwitchEbsTools = require('twitch-ebs-tools');
 
 const payload = new TwitchEbsTools('twitch shared secret').validateToken('token');
 
-const tokenNotExpired = TwitchEbsTools.verifyRole(payload, 'viewer');
+const correctRole = TwitchEbsTools.verifyRole(payload, 'viewer');
 // true / false
 ```
 
@@ -135,7 +135,7 @@ const TwitchEbsTools = require('twitch-ebs-tools');
 
 const payload = new TwitchEbsTools('twitch shared secret').validateToken('token');
 
-const tokenNotExpired = TwitchEbsTools.verifyChannelIdAndRole(payload, 'viewer');
+const correctChannelIdAndRole = TwitchEbsTools.verifyChannelIdAndRole(payload, 'viewer');
 // true / false
 ```
 
@@ -143,14 +143,14 @@ const tokenNotExpired = TwitchEbsTools.verifyChannelIdAndRole(payload, 'viewer')
 
 Verifies whether supplied Twitch payload contains valid broadcaster role. This method is useful for verifying broadcaster-only routes (e.g. Twitch extension configuration sections).
 
-Note that this only check for a Twitch `broadcaster` role and does not perform any further checks.
+Note that this only checks for a Twitch `broadcaster` role and does not perform any further checks.
 
 ```js
 const TwitchEbsTools = require('twitch-ebs-tools');
 
 const payload = new TwitchEbsTools('twitch shared secret').validateToken('token');
 
-const tokenNotExpired = TwitchEbsTools.verifyBroadcaster(payload);
+const correctBroadcasterRole = TwitchEbsTools.verifyBroadcaster(payload);
 // true / false
 ```
 ### verifyViewerOrBroadcaster(payload)
@@ -159,14 +159,14 @@ Verifies whether supplied Twitch payload contains either `broadcaster` (Twitch c
 
 **Note that checking for both roles is necessary for the extensions to work correctly.** If you validate panel route against `viewer` route only, the extension will not work correctly for channel broadcaster.
 
-Note that this only check for Twitch `broadcaster` or `viewer` roles and does not perform any further checks.
+Note that this only checks for Twitch `broadcaster` or `viewer` roles and does not perform any further checks.
 
 ```js
 const TwitchEbsTools = require('twitch-ebs-tools');
 
 const payload = new TwitchEbsTools('twitch shared secret').validateToken('token');
 
-const tokenNotExpired = TwitchEbsTools.verifyViewerOrBroadcaster(payload);
+const correctViewerOrBroadcasterRole = TwitchEbsTools.verifyViewerOrBroadcaster(payload);
 // true / false
 ```
 
