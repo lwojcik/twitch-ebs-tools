@@ -35,7 +35,7 @@
     "jsonwebtoken": "8.5.1"
   },
   "devDependencies": {
-    "@types/jest": "24.0.13",
+    "@types/jest": "24.0.15",
     "@types/jsonwebtoken": "8.3.2",
     "jest": "24.5.0",
     "prettier": "1.17.0",
