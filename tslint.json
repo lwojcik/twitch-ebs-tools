@@ -17,7 +17,9 @@
         "no-expression-statement": false,
         "no-if-statement": false,
         "no-class": false,
-        "import-name": false
+        "import-name": false,
+        "no-try": false,
+        "no-throw": false
     },
     "rulesDirectory": [
         "node_modules/tslint-eslint-rules/dist/rules"
