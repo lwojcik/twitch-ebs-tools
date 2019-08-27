@@ -5,10 +5,13 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "jest",
+    "clearTestCache": "jest --clearCache",
+    "clean": "rimraf dist/*",
     "dev": "tsc -w",
-    "build": "tsc",
+    "build": "npm run lint && npm run test && npm run clean && tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "lint": "tslint --project tsconfig.json"
+    "lint": "tslint --project tsconfig.json",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -39,6 +42,7 @@
     "@types/jsonwebtoken": "8.3.3",
     "jest": "24.8.0",
     "prettier": "1.18.2",
+    "rimraf": "3.0.0",
     "ts-jest": "24.0.2",
     "ts-loader": "6.0.4",
     "tslint": "5.18.0",
