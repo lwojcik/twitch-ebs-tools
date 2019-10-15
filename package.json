@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@types/jest": "24.0.19",
-    "@types/jsonwebtoken": "8.3.4",
+    "@types/jsonwebtoken": "8.3.5",
     "jest": "24.9.0",
     "prettier": "1.18.2",
     "rimraf": "3.0.0",
