@@ -8,7 +8,7 @@
 
 Pack of useful functions for Twitch Extension Backend Services (EBS). It provides Twitch JWT verification methods and various validation strategies.
 
-Primarily intended as a backend for a [Fastify plugin](https://www.npmjs.com/package/fastify-twitch-ebs-tools) for my [StarCraft II Twitch extension](https://www.twitch.tv/ext/wg56zk271bqja047pknv3pk65m0rbr-1.1.0), it can also be used as a standalone package or ported to other Node servers. Internally it uses [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) for validating JWT tokens issued by Twitch.
+Primarily intended as a backend for a [Fastify plugin](https://www.npmjs.com/package/fastify-twitch-ebs-tools) for my [StarCraft II Twitch extension](https://dashboard.twitch.tv/extensions/wg56zk271bqja047pknv3pk65m0rbr), it can also be used as a standalone package or ported to other Node servers. Internally it uses [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) for validating JWT tokens issued by Twitch.
 
 ## Install
 
