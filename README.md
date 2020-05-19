@@ -1,5 +1,6 @@
 # twitch-ebs-tools
 
+[![npm (latest)](https://img.shields.io/npm/v/twitch-ebs-tools/latest.svg)](https://www.npmjs.com/package/twitch-ebs-tools)
 [![Travis Build Status](https://travis-ci.org/lukemnet/twitch-ebs-tools.svg?branch=master)](https://travis-ci.org/lukemnet/twitch-ebs-tools)
 [![Maintainability](https://api.codeclimate.com/v1/badges/975f0ed290bbe152a5c9/maintainability)](https://codeclimate.com/github/lukemnet/twitch-ebs-tools/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/975f0ed290bbe152a5c9/test_coverage)](https://codeclimate.com/github/lukemnet/twitch-ebs-tools/test_coverage)
