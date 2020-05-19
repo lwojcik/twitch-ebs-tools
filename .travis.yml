@@ -9,13 +9,14 @@ os:
   - osx
   - windows
 
-matrix:
-  allow_failures:
-    - os: windows
+dist: bionic
 
 node_js:
-  - 'lts/*'
-  - 'node'
+  - '10'
+  - '11'
+  - '12'
+  - '13'
+  - '14'
 
 install:
   - npm install

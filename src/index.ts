@@ -38,7 +38,8 @@ export = class TwitchEbsTools {
    *
    * @param payload - decoded Twitch payload as JSON object
    * @param channelId - Twitch channel id to verify
-   * @returns true for Twitch payload containing valid channel id, false for invalid or no channel id
+   * @returns true for Twitch payload containing valid channel id,
+   * false for invalid or no channel id
    *
    */
   static verifyChannelId(payload: TwitchPayload, channelId: TwitchChannelId): boolean {
@@ -52,7 +53,8 @@ export = class TwitchEbsTools {
    * Verifies if decoded Twitch payload has expiry date in the future
    *
    * @param payload - decoded Twitch payload as JSON object
-   * @returns true for Twitch payload containing valid expiry date, false for expired payload
+   * @returns true for Twitch payload containing valid expiry date,
+   * false for expired payload
    *
    */
   static verifyTokenNotExpired(payload: TwitchPayload): boolean {
@@ -68,7 +70,8 @@ export = class TwitchEbsTools {
    *
    * @param payload - decoded Twitch payload as JSON object
    * @param role - Twitch role to verify (e.g. "broadcaster")
-   * @returns true for Twitch payload containing valid role, false for payload with no or invalid role
+   * @returns true for Twitch payload containing valid role,
+   * false for payload with no or invalid role
    *
    */
   static verifyRole(payload: TwitchPayload, role: TwitchRole): boolean {
@@ -84,7 +87,8 @@ export = class TwitchEbsTools {
    * @param payload - decoded Twitch payload as JSON object
    * @param channelId - Twitch channel id to verify
    * @param role - Twitch role to verify (e.g. "broadcaster")
-   * @returns true for Twitch payload containing valid role and channel id, false for invalid payloads
+   * @returns true for Twitch payload containing valid role and channel id,
+   * false for invalid payloads
    *
    */
   static verifyChannelIdAndRole(
@@ -110,7 +114,8 @@ export = class TwitchEbsTools {
    * Verifies if decoded Twitch payload contains 'broadcaster' or 'viewer' role
    *
    * @param payload - decoded Twitch payload as JSON object
-   * @returns true for Twitch payload containing 'broadcaster' or 'viewer' role, false for invalid payloads
+   * @returns true for Twitch payload containing 'broadcaster' or 'viewer' role,
+   * false for invalid payloads
    *
    */
   static verifyViewerOrBroadcaster(payload: TwitchPayload): boolean {
@@ -121,7 +126,8 @@ export = class TwitchEbsTools {
    * Validates token and checks channel id, expiry date and role.
    *
    * @param token - Twitch token as string
-   * @returns true for valid Twitch payload containing correct channel id and role, false for invalid payloads
+   * @returns true for valid Twitch payload containing correct channel id and role,
+   * false for invalid payloads
    *
    */
   validatePermission(
