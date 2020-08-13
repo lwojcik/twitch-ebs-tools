@@ -20,10 +20,4 @@ pull_request_rules:
     actions:
       merge:
         method: squash
-        strict: truepull_request_rules:
-  - name: Automatic merge on approval
-    conditions:
-      - "#approved-reviews-by>=1"
-    actions:
-      merge:
-        method: merge
+        strict: true
