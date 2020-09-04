@@ -57,7 +57,7 @@ const twitchPayload = twitchEbs.validateToken(token);
 console.log(twitchPayload); // decoded Twitch payload
 ```
 
-### validatePermission(token, channelId, roles)
+### validatePermission(token, channelId, roles, acceptExpired?)
 
 Validates whether supplied Twitch token:
 
@@ -80,6 +80,7 @@ Parameters:
 * `token` - JWT token issued by Twitch as string
 * `channelId` - Twitch channel ID used for validating the Twitch token
 * `role` - Twitch role(s) to be used for validating supplied token. It accepts strings (e.g. `viewer`) or arrays of string (e.g. `['viewer', 'broadcaster']`). In case of arrays one of the roles is needed to pass the validation
+* `acceptExpired` (optional) - when `true`, token expiration time will not be checked. Use at your own risk
 
 ## Static methods
 
