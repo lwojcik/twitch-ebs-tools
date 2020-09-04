@@ -99,4 +99,28 @@ describe('validatePermission() method', () => {
       ),
     ).toEqual(true);
   });
+
+  test('should return true for expired token when acceptExpired is set to true', () => {
+    const sampleToken = jwt.sign(
+      {
+        exp: new Date().setTime(new Date().getTime() - 60 * 60 * 1000),
+        channel_id: '123',
+        role: 'viewer',
+      },
+      Buffer.from('some secret', 'base64'),
+    ) as TwitchToken;
+
+    const sampleChannelId = '123';
+
+    const validRoles = ['viewer', 'broadcaster'] as ReadonlyArray<string>;
+
+    expect(
+      new TwitchEbsTools('some secret').validatePermission(
+        sampleToken,
+        sampleChannelId,
+        validRoles,
+        true,
+      ),
+    ).toEqual(true);
+  });
 });

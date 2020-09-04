@@ -134,6 +134,7 @@ export = class TwitchEbsTools {
     token: TwitchToken,
     channelId: TwitchChannelId,
     roles: TwitchRole | TwitchRoles,
+    acceptExpired?: boolean,
   ): boolean {
     try {
       const payload = <TwitchPayload>this.validateToken(token);
@@ -143,7 +144,7 @@ export = class TwitchEbsTools {
 
       return (
         TwitchEbsTools.verifyChannelId(payload, channelId) &&
-        TwitchEbsTools.verifyTokenNotExpired(payload) &&
+        (acceptExpired ? true : TwitchEbsTools.verifyTokenNotExpired(payload)) &&
         verifiedRole
       );
     } catch (error) {
