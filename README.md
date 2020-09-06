@@ -57,7 +57,7 @@ const twitchPayload = twitchEbs.validateToken(token);
 console.log(twitchPayload); // decoded Twitch payload
 ```
 
-### validatePermission(token, channelId, roles, acceptExpired?)
+### validatePermission(token, channelId, roles, ignoreExpiration?)
 
 Validates whether supplied Twitch token:
 
