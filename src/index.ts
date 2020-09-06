@@ -25,9 +25,14 @@ export = class TwitchEbsTools {
    * @returns Decoded payload for valid token or JSONWebTokenError for invalid token
    *
    */
-  validateToken(token: TwitchToken): TwitchPayload | Error {
+  validateToken(token: TwitchToken, ignoreExpiration?: boolean): TwitchPayload | Error {
     try {
-      return <TwitchPayload>jwt.verify(token, Buffer.from(this.secret, 'base64'));
+      return <TwitchPayload>jwt.verify(
+        token,
+        Buffer.from(this.secret, 'base64'),
+        {
+          ignoreExpiration,
+        });
     } catch (error) {
       throw new Error('invalid signature');
     }
@@ -134,17 +139,17 @@ export = class TwitchEbsTools {
     token: TwitchToken,
     channelId: TwitchChannelId,
     roles: TwitchRole | TwitchRoles,
-    acceptExpired?: boolean,
+    ignoreExpiration?: boolean,
   ): boolean {
     try {
-      const payload = <TwitchPayload>this.validateToken(token);
+      const payload = <TwitchPayload>this.validateToken(token, ignoreExpiration);
       const verifiedRole = Array.isArray(roles)
         ? roles.some(role => TwitchEbsTools.verifyRole(payload, role as TwitchRole))
         : TwitchEbsTools.verifyRole(payload, roles as TwitchRole);
 
       return (
         TwitchEbsTools.verifyChannelId(payload, channelId) &&
-        (acceptExpired ? true : TwitchEbsTools.verifyTokenNotExpired(payload)) &&
+        (ignoreExpiration ? true : TwitchEbsTools.verifyTokenNotExpired(payload)) &&
         verifiedRole
       );
     } catch (error) {
