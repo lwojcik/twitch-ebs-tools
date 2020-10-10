@@ -1,20 +1,20 @@
 import TwitchEbsTools from '../../src';
-import { TwitchPayload } from '../../src/types';
+import { TwitchPayload } from '../../src/types.d';
 
 describe('verifyBroadcaster() static method', () => {
-  test('returns true for correct broadcaster role', () => {
+  it('returns true for correct broadcaster role', () => {
     const samplePayload = {
       role: 'broadcaster',
     } as TwitchPayload;
 
-    expect(TwitchEbsTools.verifyBroadcaster(samplePayload)).toEqual(true);
+    expect(TwitchEbsTools.verifyBroadcaster(samplePayload)).toBe(true);
   });
 
-  test('returns false for incorrect role', () => {
+  it('returns false for incorrect role', () => {
     const incorrectPayload = {
       role: 'viewer',
     } as TwitchPayload;
 
-    expect(TwitchEbsTools.verifyBroadcaster(incorrectPayload)).toEqual(false);
+    expect(TwitchEbsTools.verifyBroadcaster(incorrectPayload)).toBe(false);
   });
 });

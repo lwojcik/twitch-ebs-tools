@@ -1,17 +1,17 @@
 import jwt from 'jsonwebtoken';
 import TwitchEbsTools from '../../src';
-import { TwitchToken } from '../../src/types';
+import { TwitchToken } from '../../src/types.d';
 
 describe('validatePermission() method', () => {
-  test('should return false for invalid token', () => {
+  it('should return false for invalid token', () => {
     const invalidToken = 'invalid token' as TwitchToken;
 
     expect(
       new TwitchEbsTools('irrelevant secret').validatePermission(invalidToken, '123', 'viewer'),
-    ).toEqual(false);
+    ).toBe(false);
   });
 
-  test('should return false for invalid channelId', () => {
+  it('should return false for invalid channelId', () => {
     const invalidChannelId = '999';
 
     const sampleToken = jwt.sign(
@@ -30,10 +30,10 @@ describe('validatePermission() method', () => {
         invalidChannelId,
         sampleRole,
       ),
-    ).toEqual(false);
+    ).toBe(false);
   });
 
-  test('should return false for invalid role', () => {
+  it('should return false for invalid role', () => {
     const sampleChannelId = '999';
 
     const sampleToken = jwt.sign(
@@ -52,10 +52,10 @@ describe('validatePermission() method', () => {
         sampleChannelId,
         invalidRole,
       ),
-    ).toEqual(false);
+    ).toBe(false);
   });
 
-  test('should return false for invalid array of roles', () => {
+  it('should return false for invalid array of roles', () => {
     const sampleChannelId = '999';
 
     const sampleToken = jwt.sign(
@@ -74,10 +74,10 @@ describe('validatePermission() method', () => {
         sampleChannelId,
         invalidRoles,
       ),
-    ).toEqual(false);
+    ).toBe(false);
   });
 
-  test('should return true for valid token, valid channel id and valid role', () => {
+  it('should return true for valid token, valid channel id and valid role', () => {
     const sampleToken = jwt.sign(
       {
         exp: new Date().setTime(new Date().getTime() + 60 * 60 * 1000),
@@ -97,10 +97,10 @@ describe('validatePermission() method', () => {
         sampleChannelId,
         validRoles,
       ),
-    ).toEqual(true);
+    ).toStrictEqual(true);
   });
 
-  test('should return true for expired token when acceptExpired is set to true', () => {
+  it('should return true for expired token when acceptExpired is set to true', () => {
     const sampleToken = jwt.sign(
       {
         exp: new Date().setTime(new Date().getTime() - 60 * 60 * 1000),
@@ -121,6 +121,6 @@ describe('validatePermission() method', () => {
         validRoles,
         true,
       ),
-    ).toEqual(true);
+    ).toBe(true);
   });
 });

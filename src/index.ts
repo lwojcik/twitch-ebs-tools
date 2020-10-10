@@ -1,6 +1,12 @@
 import jwt from 'jsonwebtoken';
 
-import { TwitchToken, TwitchPayload, TwitchChannelId, TwitchRole, TwitchRoles } from './types';
+import {
+  TwitchToken,
+  TwitchPayload,
+  TwitchChannelId,
+  TwitchRole,
+  TwitchRoles,
+} from './types.d';
 
 /**
  * Twitch EBS toolset class.
@@ -10,7 +16,6 @@ import { TwitchToken, TwitchPayload, TwitchChannelId, TwitchRole, TwitchRoles } 
  * TwitchEbsTools class to be initialized.
  *
  */
-
 export = class TwitchEbsTools {
   readonly secret: string;
 
@@ -32,7 +37,8 @@ export = class TwitchEbsTools {
         Buffer.from(this.secret, 'base64'),
         {
           ignoreExpiration,
-        });
+        },
+      );
     } catch (error) {
       throw new Error('invalid signature');
     }
@@ -142,15 +148,15 @@ export = class TwitchEbsTools {
     ignoreExpiration?: boolean,
   ): boolean {
     try {
-      const payload = <TwitchPayload>this.validateToken(token, ignoreExpiration);
+      const payload = <TwitchPayload> this.validateToken(token, ignoreExpiration);
       const verifiedRole = Array.isArray(roles)
         ? roles.some(role => TwitchEbsTools.verifyRole(payload, role as TwitchRole))
         : TwitchEbsTools.verifyRole(payload, roles as TwitchRole);
 
       return (
-        TwitchEbsTools.verifyChannelId(payload, channelId) &&
-        (ignoreExpiration ? true : TwitchEbsTools.verifyTokenNotExpired(payload)) &&
-        verifiedRole
+        TwitchEbsTools.verifyChannelId(payload, channelId)
+        && (ignoreExpiration ? true : TwitchEbsTools.verifyTokenNotExpired(payload))
+        && verifiedRole
       );
     } catch (error) {
       return false;
