@@ -1,5 +1,5 @@
 import TwitchEbsTools from '../../src';
-import { TwitchPayload } from '../../src/types.d';
+import { TwitchPayload } from '../../src/types';
 
 describe('verifyTokenNotExpired() static method', () => {
   it('returns true for payload with valid exp value', () => {
