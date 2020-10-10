@@ -8,8 +8,9 @@
     "clearTestCache": "jest --clearCache",
     "clean": "rimraf dist/*",
     "dev": "tsc -w",
-    "build": "npm run lint && npm run test && npm run clean && tsc",
-    "lint": "tslint --project tsconfig.json",
+    "compile": "tsc --project tsconfig.json",
+    "build": "npm run lint && npm run test && npm run clean && npm run compile",
+    "lint": "eslint . --ext .ts",
     "prepublishOnly": "npm run build"
   },
   "repository": {
@@ -39,6 +40,12 @@
   "devDependencies": {
     "@types/jest": "^26.0.14",
     "@types/jsonwebtoken": "^8.5.0",
+    "@typescript-eslint/eslint-plugin": "^4.4.0",
+    "@typescript-eslint/parser": "^4.4.0",
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb-typescript": "^11.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.0",
     "jest": "^26.5.2",
     "rimraf": "^3.0.2",
     "ts-jest": "^26.4.1",
