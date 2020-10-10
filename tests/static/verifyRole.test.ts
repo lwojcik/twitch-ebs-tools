@@ -1,29 +1,29 @@
 import TwitchEbsTools from '../../src';
-import { TwitchPayload } from '../../src/types';
+import { TwitchPayload } from '../../src/types.d';
 
 describe('verifyRole() static method', () => {
-  test('returns true for correct role', () => {
+  it('returns true for correct role', () => {
     const samplePayload = {
       role: 'broadcaster',
     } as TwitchPayload;
     const sampleRole = 'broadcaster';
 
-    expect(TwitchEbsTools.verifyRole(samplePayload, sampleRole)).toEqual(true);
+    expect(TwitchEbsTools.verifyRole(samplePayload, sampleRole)).toBe(true);
   });
 
-  test('returns false for incorrect role', () => {
+  it('returns false for incorrect role', () => {
     const samplePayload = {
       role: 'broadcaster',
     } as TwitchPayload;
     const incorrectRole = 'viewer';
 
-    expect(TwitchEbsTools.verifyRole(samplePayload, incorrectRole)).toEqual(false);
+    expect(TwitchEbsTools.verifyRole(samplePayload, incorrectRole)).toBe(false);
   });
 
-  test('returns false for invalid payload', () => {
+  it('returns false for invalid payload', () => {
     const samplePayload = {} as TwitchPayload;
     const incorrectRole = 'viewer';
 
-    expect(TwitchEbsTools.verifyRole(samplePayload, incorrectRole)).toEqual(false);
+    expect(TwitchEbsTools.verifyRole(samplePayload, incorrectRole)).toBe(false);
   });
 });

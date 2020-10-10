@@ -1,8 +1,8 @@
 import TwitchEbsTools from '../../src';
-import { TwitchPayload } from '../../src/types';
+import { TwitchPayload } from '../../src/types.d';
 
 describe('verifyChannelIdAndRole() static method', () => {
-  test('returns true for correct channel id and correct role', () => {
+  it('returns true for correct channel id and correct role', () => {
     const samplePayload = {
       channel_id: '123',
       role: 'broadcaster',
@@ -12,10 +12,10 @@ describe('verifyChannelIdAndRole() static method', () => {
 
     expect(
       TwitchEbsTools.verifyChannelIdAndRole(samplePayload, sampleChannelId, sampleRole),
-    ).toEqual(true);
+    ).toBe(true);
   });
 
-  test('returns false for correct channel id and incorrect role', () => {
+  it('returns false for correct channel id and incorrect role', () => {
     const samplePayload = {
       channel_id: '123',
       role: 'broadcaster',
@@ -25,10 +25,10 @@ describe('verifyChannelIdAndRole() static method', () => {
 
     expect(
       TwitchEbsTools.verifyChannelIdAndRole(samplePayload, sampleChannelId, incorrectRole),
-    ).toEqual(false);
+    ).toBe(false);
   });
 
-  test('returns false for incorrect channel id and correct role', () => {
+  it('returns false for incorrect channel id and correct role', () => {
     const samplePayload = {
       channel_id: '123',
       role: 'broadcaster',
@@ -38,10 +38,10 @@ describe('verifyChannelIdAndRole() static method', () => {
 
     expect(
       TwitchEbsTools.verifyChannelIdAndRole(samplePayload, incorrectChannelId, sampleRole),
-    ).toEqual(false);
+    ).toBe(false);
   });
 
-  test('returns false for incorrect channel id and incorrect role', () => {
+  it('returns false for incorrect channel id and incorrect role', () => {
     const samplePayload = {
       channel_id: '123',
       role: 'broadcaster',
@@ -51,6 +51,6 @@ describe('verifyChannelIdAndRole() static method', () => {
 
     expect(
       TwitchEbsTools.verifyChannelIdAndRole(samplePayload, incorrectChannelId, incorrectRole),
-    ).toEqual(false);
+    ).toBe(false);
   });
 });
