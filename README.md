@@ -1,10 +1,8 @@
 # twitch-ebs-tools
 
 [![npm (latest)](https://img.shields.io/npm/v/twitch-ebs-tools/latest.svg)](https://www.npmjs.com/package/twitch-ebs-tools)
-[![Travis Build Status](https://travis-ci.com/lukemnet/twitch-ebs-tools.svg?branch=master)](https://travis-ci.com/lukemnet/twitch-ebs-tools)
-[![Maintainability](https://api.codeclimate.com/v1/badges/975f0ed290bbe152a5c9/maintainability)](https://codeclimate.com/github/lukemnet/twitch-ebs-tools/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/975f0ed290bbe152a5c9/test_coverage)](https://codeclimate.com/github/lukemnet/twitch-ebs-tools/test_coverage)
-
+[![Build status](https://ci.appveyor.com/api/projects/status/8esgc2oj5wkmesvm/branch/master?svg=true)](https://ci.appveyor.com/project/lwojcik/twitch-ebs-tools/branch/master)
+[![codecov](https://codecov.io/gh/lukemnet/twitch-ebs-tools/branch/master/graph/badge.svg?token=AJnXZHKI3o)](https://codecov.io/gh/lukemnet/twitch-ebs-tools)
 
 Pack of useful functions for Twitch Extension Backend Services (EBS). It provides Twitch JWT verification methods and various validation strategies.
 
