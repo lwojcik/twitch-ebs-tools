@@ -1,4 +1,4 @@
-import TwitchEbsTools from '../../src';
+import { TwitchEbsTools } from '../../src';
 import { TwitchPayload } from '../../src/types';
 
 describe('verifyChannelIdAndRole() static method', () => {

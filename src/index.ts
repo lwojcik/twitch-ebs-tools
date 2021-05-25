@@ -24,7 +24,7 @@ export {
  * TwitchEbsTools class to be initialized.
  *
  */
-export default class TwitchEbsTools {
+export class TwitchEbsTools {
   readonly secret: string;
 
   constructor(secret: string) {

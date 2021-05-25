@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import TwitchEbsTools from '../../src';
+import { TwitchEbsTools } from '../../src';
 import { TwitchToken } from '../../src/types';
 
 describe('validatePermission() method', () => {
