@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import TwitchEbsTools from '../../src';
+import { TwitchEbsTools } from '../../src';
 
 describe('validateToken() method', () => {
   it('should return payload for correctly signed token', () => {

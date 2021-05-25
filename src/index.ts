@@ -8,13 +8,7 @@ import {
   TwitchRoles,
 } from './types';
 
-export {
-  TwitchToken,
-  TwitchPayload,
-  TwitchChannelId,
-  TwitchRole,
-  TwitchRoles,
-};
+export * from './types';
 
 /**
  * Twitch EBS toolset class.
@@ -24,7 +18,7 @@ export {
  * TwitchEbsTools class to be initialized.
  *
  */
-export default class TwitchEbsTools {
+export class TwitchEbsTools {
   readonly secret: string;
 
   constructor(secret: string) {

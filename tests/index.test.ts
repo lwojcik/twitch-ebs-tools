@@ -1,4 +1,4 @@
-import TwitchEbsTools from '../src';
+import { TwitchEbsTools } from '../src';
 
 describe('TwitchEbsTools class', () => {
   it('should be defined', () => {
