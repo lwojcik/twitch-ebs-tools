@@ -8,13 +8,7 @@ import {
   TwitchRoles,
 } from './types';
 
-export {
-  TwitchToken,
-  TwitchPayload,
-  TwitchChannelId,
-  TwitchRole,
-  TwitchRoles,
-};
+export * from './types';
 
 /**
  * Twitch EBS toolset class.
