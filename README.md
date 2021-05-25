@@ -16,11 +16,24 @@ npm install twitch-ebs-tools
 
 ## Manual build
 
-```
+```bash
 git clone https://github.com/lukemnet/twitch-ebs-tools.git
 cd twitch-ebs-tools
 npm install
 npm run build
+```
+
+## Access via CDN
+
+Twitch-ebs-tools is also available as UMD module and it can be accessed via CDN:
+
+```js
+// Using jsDelivr:
+<script src="https://cdn.jsdelivr.net/npm/twitch-ebs-tools/dist/index.umd.js"></script>
+
+// Using unpkg:
+<script src="https://unpkg.com/twitch-ebs-tools/dist/index.umd.js"></script>
+
 ```
 
 ## Basic usage
@@ -30,7 +43,13 @@ npm run build
 For methods starting with `validate` class initialization is needed:
 
 ```js
-const TwitchEbsTools = require('twitch-ebs-tools');
+const { TwitchEbsTools } = require('twitch-ebs-tools');
+
+/**
+ * Or using TypeScript / ES6 import:
+ * import { TwitchEbsTools } from 'twitch-ebs-tools';
+ */
+
 
 const twitchEbs = new TwitchEbsTools('twitch shared secret');
 ```
@@ -40,7 +59,7 @@ Methods starting with `verify` are static, as they don't rely on Twitch shared s
 Example:
 
 ```js
-const TwitchEbsTools = require('twitch-ebs-tools');
+const { TwitchEbsTools } = require('twitch-ebs-tools');
 
 const payload = new TwitchEbsTools('twitch shared secret').validateToken('token');
 
@@ -55,7 +74,7 @@ Validates Twitch token by passing it to [verify](https://www.npmjs.com/package/j
 It is the most basic method that serves as a basis for more granular strategies.
 
 ```js
-const TwitchEbsTools = require('twitch-ebs-tools');
+const { TwitchEbsTools } = require('twitch-ebs-tools');
 
 const twitchEbs = new TwitchEbsTools('twitch shared secret');
 
@@ -73,7 +92,7 @@ Validates whether supplied Twitch token:
 * contains correct channel role
 
 ```js
-const TwitchEbsTools = require('twitch-ebs-tools');
+const { TwitchEbsTools } = require('twitch-ebs-tools');
 
 const twitchEbs = new TwitchEbsTools('twitch shared secret');
 
@@ -100,7 +119,7 @@ Static methods can be used pretty much out-of-the-box. They are intended to be h
 Verifies whether supplied Twitch payload contains channel ID passed as a `string` parameter. Returns `true` / `false`. If Twitch payload is malformed, it returns `false`.
 
 ```js
-const TwitchEbsTools = require('twitch-ebs-tools');
+const { TwitchEbsTools } = require('twitch-ebs-tools');
 
 const payload = new TwitchEbsTools('twitch shared secret').validateToken('token');
 
@@ -113,7 +132,7 @@ const validChannelId = TwitchEbsTools.verifyChannelId(payload, '123456789');
 Verifies whether supplied Twitch payload is time valid by comparing `exp` property with current server time. Twitch tokens are valid for one hour since being issued.
 
 ```js
-const TwitchEbsTools = require('twitch-ebs-tools');
+const { TwitchEbsTools } = require('twitch-ebs-tools');
 
 const payload = new TwitchEbsTools('twitch shared secret').validateToken('token');
 
@@ -126,7 +145,7 @@ const tokenNotExpired = TwitchEbsTools.verifyChannelId(payload);
 Verifies whether supplied Twitch payload contains valid role. It accepts Twitch role (`viewer` or `broadcaster`) as string.
 
 ```js
-const TwitchEbsTools = require('twitch-ebs-tools');
+const { TwitchEbsTools } = require('twitch-ebs-tools');
 
 const payload = new TwitchEbsTools('twitch shared secret').validateToken('token');
 
@@ -139,7 +158,7 @@ const correctRole = TwitchEbsTools.verifyRole(payload, 'viewer');
 Verifies whether supplied Twitch payload contains valid channel id and role. It accepts Twitch channel ID as string and Twitch role (`viewer` or `broadcaster`) as string.
 
 ```js
-const TwitchEbsTools = require('twitch-ebs-tools');
+const { TwitchEbsTools } = require('twitch-ebs-tools');
 
 const payload = new TwitchEbsTools('twitch shared secret').validateToken('token');
 
@@ -154,7 +173,7 @@ Verifies whether supplied Twitch payload contains valid broadcaster role. This m
 Note that this only checks for a Twitch `broadcaster` role and does not perform any further checks.
 
 ```js
-const TwitchEbsTools = require('twitch-ebs-tools');
+const { TwitchEbsTools } = require('twitch-ebs-tools');
 
 const payload = new TwitchEbsTools('twitch shared secret').validateToken('token');
 
@@ -170,7 +189,7 @@ Verifies whether supplied Twitch payload contains either `broadcaster` (Twitch c
 Note that this only checks for Twitch `broadcaster` or `viewer` roles and does not perform any further checks.
 
 ```js
-const TwitchEbsTools = require('twitch-ebs-tools');
+const { TwitchEbsTools } = require('twitch-ebs-tools');
 
 const payload = new TwitchEbsTools('twitch shared secret').validateToken('token');
 
