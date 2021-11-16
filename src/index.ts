@@ -34,13 +34,13 @@ export class TwitchEbsTools {
    */
   validateToken(token: TwitchToken, ignoreExpiration?: boolean): TwitchPayload | Error {
     try {
-      return <TwitchPayload>jwt.verify(
+      return jwt.verify(
         token,
         Buffer.from(this.secret, 'base64'),
         {
           ignoreExpiration,
         },
-      );
+      ) as unknown as TwitchPayload;
     } catch (error) {
       throw new Error('invalid signature');
     }
