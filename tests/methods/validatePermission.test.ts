@@ -97,7 +97,7 @@ describe('validatePermission() method', () => {
         sampleChannelId,
         validRoles,
       ),
-    ).toStrictEqual(true);
+    ).toBe(true);
   });
 
   it('should return true for expired token when acceptExpired is set to true', () => {
