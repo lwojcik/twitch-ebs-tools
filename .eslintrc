@@ -3,7 +3,8 @@
   "parser": "@typescript-eslint/parser",
   "plugins": [
     "@typescript-eslint",
-    "jest"
+    "jest",
+    "import"
   ],
   "extends": [
     "airbnb-typescript/base",
@@ -28,6 +29,7 @@
       }
     ],
     "jest/no-hooks": "off",
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "jest/prefer-lowercase-title": "off"
   }
 }
