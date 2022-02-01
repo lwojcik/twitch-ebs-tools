@@ -136,7 +136,7 @@ const { TwitchEbsTools } = require('twitch-ebs-tools');
 
 const payload = new TwitchEbsTools('twitch shared secret').validateToken('token');
 
-const tokenNotExpired = TwitchEbsTools.verifyChannelId(payload);
+const tokenNotExpired = TwitchEbsTools.verifyTokenNotExpired(payload);
 // true / false
 ```
 
