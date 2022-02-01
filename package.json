@@ -1,6 +1,6 @@
 {
   "name": "twitch-ebs-tools",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Utility functions for Twitch Extension Backend Services (EBS)",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
