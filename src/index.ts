@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
 
 import {
   TwitchToken,
@@ -6,9 +6,9 @@ import {
   TwitchChannelId,
   TwitchRole,
   TwitchRoles,
-} from './types';
+} from "./types";
 
-export * from './types';
+export * from "./types";
 
 /**
  * Twitch EBS toolset class.
@@ -32,17 +32,16 @@ export class TwitchEbsTools {
    * @returns Decoded payload for valid token or JSONWebTokenError for invalid token
    *
    */
-  validateToken(token: TwitchToken, ignoreExpiration?: boolean): TwitchPayload | Error {
+  validateToken(
+    token: TwitchToken,
+    ignoreExpiration?: boolean
+  ): TwitchPayload | Error {
     try {
-      return jwt.verify(
-        token,
-        Buffer.from(this.secret, 'base64'),
-        {
-          ignoreExpiration,
-        },
-      ) as unknown as TwitchPayload;
+      return jwt.verify(token, Buffer.from(this.secret, "base64"), {
+        ignoreExpiration,
+      }) as unknown as TwitchPayload;
     } catch (error) {
-      throw new Error('invalid signature');
+      throw new Error("invalid signature");
     }
   }
 
@@ -55,7 +54,10 @@ export class TwitchEbsTools {
    * false for invalid or no channel id
    *
    */
-  static verifyChannelId(payload: TwitchPayload, channelId: TwitchChannelId): boolean {
+  static verifyChannelId(
+    payload: TwitchPayload,
+    channelId: TwitchChannelId
+  ): boolean {
     if (payload && payload.channel_id) {
       return payload.channel_id === channelId.toString();
     }
@@ -71,7 +73,9 @@ export class TwitchEbsTools {
    *
    */
   static verifyTokenNotExpired(payload: TwitchPayload): boolean {
-    const epochTimeNowInSeconds = <Date>(<any>Math.round(new Date().getTime() / 1000));
+    const epochTimeNowInSeconds = <Date>(
+      (<unknown>Math.round(new Date().getTime() / 1000))
+    );
     if (payload && payload.exp) {
       return epochTimeNowInSeconds <= payload.exp;
     }
@@ -107,9 +111,11 @@ export class TwitchEbsTools {
   static verifyChannelIdAndRole(
     payload: TwitchPayload,
     channelId: TwitchChannelId,
-    role: TwitchRole,
+    role: TwitchRole
   ): boolean {
-    return this.verifyChannelId(payload, channelId) && this.verifyRole(payload, role);
+    return (
+      this.verifyChannelId(payload, channelId) && this.verifyRole(payload, role)
+    );
   }
 
   /**
@@ -120,7 +126,7 @@ export class TwitchEbsTools {
    *
    */
   static verifyBroadcaster(payload: TwitchPayload): boolean {
-    return this.verifyRole(payload, 'broadcaster');
+    return this.verifyRole(payload, "broadcaster");
   }
 
   /**
@@ -132,7 +138,10 @@ export class TwitchEbsTools {
    *
    */
   static verifyViewerOrBroadcaster(payload: TwitchPayload): boolean {
-    return this.verifyRole(payload, 'broadcaster') || this.verifyRole(payload, 'viewer');
+    return (
+      this.verifyRole(payload, "broadcaster") ||
+      this.verifyRole(payload, "viewer")
+    );
   }
 
   /**
@@ -147,20 +156,26 @@ export class TwitchEbsTools {
     token: TwitchToken,
     channelId: TwitchChannelId,
     roles: TwitchRole | TwitchRoles,
-    ignoreExpiration?: boolean,
+    ignoreExpiration?: boolean
   ): boolean {
     try {
-      const payload = <TwitchPayload> this.validateToken(token, ignoreExpiration);
+      const payload = <TwitchPayload>(
+        this.validateToken(token, ignoreExpiration)
+      );
       const verifiedRole = Array.isArray(roles)
-        ? roles.some(role => TwitchEbsTools.verifyRole(payload, role as TwitchRole))
+        ? roles.some((role) =>
+            TwitchEbsTools.verifyRole(payload, role as TwitchRole)
+          )
         : TwitchEbsTools.verifyRole(payload, roles as TwitchRole);
 
       return (
-        TwitchEbsTools.verifyChannelId(payload, channelId)
-        && (ignoreExpiration ? true : TwitchEbsTools.verifyTokenNotExpired(payload))
-        && verifiedRole
+        TwitchEbsTools.verifyChannelId(payload, channelId) &&
+        (ignoreExpiration
+          ? true
+          : TwitchEbsTools.verifyTokenNotExpired(payload)) &&
+        verifiedRole
       );
-    } catch (error) {
+    } catch {
       return false;
     }
   }

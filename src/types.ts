@@ -14,6 +14,6 @@ export type TwitchToken = string;
 
 export type TwitchChannelId = string | number;
 
-export type TwitchRole = 'broadcaster' | 'viewer' | string;
+export type TwitchRole = "broadcaster" | "viewer" | string;
 
 export type TwitchRoles = ReadonlyArray<TwitchRole>;
