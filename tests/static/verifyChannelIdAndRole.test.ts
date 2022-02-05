@@ -1,56 +1,72 @@
-import { TwitchEbsTools } from '../../src';
-import { TwitchPayload } from '../../src/types';
+import { TwitchEbsTools } from "../../src";
+import { TwitchPayload } from "../../src/types";
 
-describe('verifyChannelIdAndRole() static method', () => {
-  it('returns true for correct channel id and correct role', () => {
+describe("verifyChannelIdAndRole() static method", () => {
+  it("returns true for correct channel id and correct role", () => {
     const samplePayload = {
-      channel_id: '123',
-      role: 'broadcaster',
+      channel_id: "123",
+      role: "broadcaster",
     } as TwitchPayload;
-    const sampleChannelId = '123';
-    const sampleRole = 'broadcaster';
+    const sampleChannelId = "123";
+    const sampleRole = "broadcaster";
 
     expect(
-      TwitchEbsTools.verifyChannelIdAndRole(samplePayload, sampleChannelId, sampleRole),
+      TwitchEbsTools.verifyChannelIdAndRole(
+        samplePayload,
+        sampleChannelId,
+        sampleRole
+      )
     ).toBe(true);
   });
 
-  it('returns false for correct channel id and incorrect role', () => {
+  it("returns false for correct channel id and incorrect role", () => {
     const samplePayload = {
-      channel_id: '123',
-      role: 'broadcaster',
+      channel_id: "123",
+      role: "broadcaster",
     } as TwitchPayload;
-    const sampleChannelId = '123';
-    const incorrectRole = 'viewer';
+    const sampleChannelId = "123";
+    const incorrectRole = "viewer";
 
     expect(
-      TwitchEbsTools.verifyChannelIdAndRole(samplePayload, sampleChannelId, incorrectRole),
+      TwitchEbsTools.verifyChannelIdAndRole(
+        samplePayload,
+        sampleChannelId,
+        incorrectRole
+      )
     ).toBe(false);
   });
 
-  it('returns false for incorrect channel id and correct role', () => {
+  it("returns false for incorrect channel id and correct role", () => {
     const samplePayload = {
-      channel_id: '123',
-      role: 'broadcaster',
+      channel_id: "123",
+      role: "broadcaster",
     } as TwitchPayload;
-    const incorrectChannelId = '456';
-    const sampleRole = 'broadcaster';
+    const incorrectChannelId = "456";
+    const sampleRole = "broadcaster";
 
     expect(
-      TwitchEbsTools.verifyChannelIdAndRole(samplePayload, incorrectChannelId, sampleRole),
+      TwitchEbsTools.verifyChannelIdAndRole(
+        samplePayload,
+        incorrectChannelId,
+        sampleRole
+      )
     ).toBe(false);
   });
 
-  it('returns false for incorrect channel id and incorrect role', () => {
+  it("returns false for incorrect channel id and incorrect role", () => {
     const samplePayload = {
-      channel_id: '123',
-      role: 'broadcaster',
+      channel_id: "123",
+      role: "broadcaster",
     } as TwitchPayload;
-    const incorrectChannelId = '456';
-    const incorrectRole = 'viewer';
+    const incorrectChannelId = "456";
+    const incorrectRole = "viewer";
 
     expect(
-      TwitchEbsTools.verifyChannelIdAndRole(samplePayload, incorrectChannelId, incorrectRole),
+      TwitchEbsTools.verifyChannelIdAndRole(
+        samplePayload,
+        incorrectChannelId,
+        incorrectRole
+      )
     ).toBe(false);
   });
 });

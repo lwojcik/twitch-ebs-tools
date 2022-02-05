@@ -4,9 +4,9 @@ Twitch-ebs-tools is as an open source project. Contributions of any kind are wel
 
 You can contribute to the project in many ways:
 
-* file a bug report
-* suggest a feature
-* submit a pull request
+- file a bug report
+- suggest a feature
+- submit a pull request
 
 ## Bug reports
 
@@ -14,11 +14,11 @@ If you encounter unexpected behavior, design flaw or any other kind of error tha
 
 There is no specific format you have to follow while filing your report. However, it's highly advisable you include at least some of following information:
 
-* clear and concise bug description
-* steps to reproduce the problem
-* code samples or test cases that induce faulty behavior (if applicable)
-* expected behavior - what you expected to happen
-* any other contextual information about the problem (if applicable)
+- clear and concise bug description
+- steps to reproduce the problem
+- code samples or test cases that induce faulty behavior (if applicable)
+- expected behavior - what you expected to happen
+- any other contextual information about the problem (if applicable)
 
 ## Feature suggestions
 
@@ -38,17 +38,17 @@ Code patches that add features or fix bugs can be sent as [pull requests on GitH
 
 To make the process of merging your pull request as quick as possible, be sure to read and follow the guidelines below:
 
-* All GitHub status checks marked as 'Required' MUST pass in order to merge the pull request.
+- All GitHub status checks marked as 'Required' MUST pass in order to merge the pull request.
 
-* It's highly appreciated if you attempt to fix any failing status checks not marked as 'Required'. Their purpose is to help maintaining general project hygiene but they aren't meant to be gatekeepers. A small percentage of issues may be false positives that can be safely ignored. Use your best judgement while deciding whether it's something you should spend time working on.
+- It's highly appreciated if you attempt to fix any failing status checks not marked as 'Required'. Their purpose is to help maintaining general project hygiene but they aren't meant to be gatekeepers. A small percentage of issues may be false positives that can be safely ignored. Use your best judgement while deciding whether it's something you should spend time working on.
 
-* Adding tests for your code is highly appreciated but not mandatory. Again, use your best judgement whether this is something you can provide within reasonable timeframe.
+- Adding tests for your code is highly appreciated but not mandatory. Again, use your best judgement whether this is something you can provide within reasonable timeframe.
 
-* If your pull request isn't ready to be merged, please prefix its title with 'WIP' (Work In Progress) or indicate this in the description.
+- If your pull request isn't ready to be merged, please prefix its title with 'WIP' (Work In Progress) or indicate this in the description.
 
-* Pull requests are merged to `master` branch via squash-and-merge strategy. There are no specific requirements about quality and quantity of commits within feature branches.
+- Pull requests are merged to `master` branch via squash-and-merge strategy. There are no specific requirements about quality and quantity of commits within feature branches.
 
-* Feel free to add yourself to [AUTHORS](https://github.com/lukemnet/twitch-ebs-tools/blob/master/AUTHORS) file if you haven't done so.
+- Feel free to add yourself to [AUTHORS](https://github.com/lukemnet/twitch-ebs-tools/blob/master/AUTHORS) file if you haven't done so.
 
 ## Technical information
 
@@ -76,9 +76,9 @@ For automated unit testing, Twitch-ebs-tools uses [Jest](https://jestjs.io/). Al
 
 Testing is done via:
 
-* manual and automatic mocks contained in `__mocks__` directory as well as within the test files,
-* reusable sample data sets contained within `__testData__` directory
-* auto-generated Jest snapshots within `__snapshots__` directory which describe desired outcome of code being tested
+- manual and automatic mocks contained in `__mocks__` directory as well as within the test files,
+- reusable sample data sets contained within `__testData__` directory
+- auto-generated Jest snapshots within `__snapshots__` directory which describe desired outcome of code being tested
 
 All test components and assertions are treated as an integral part of project code.
 
