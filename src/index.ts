@@ -34,7 +34,7 @@ export class TwitchEbsTools {
    */
   validateToken(
     token: TwitchToken,
-    ignoreExpiration?: boolean
+    ignoreExpiration = false
   ): TwitchPayload | Error {
     try {
       return jwt.verify(token, Buffer.from(this.secret, "base64"), {
@@ -58,7 +58,7 @@ export class TwitchEbsTools {
     payload: TwitchPayload,
     channelId: TwitchChannelId
   ): boolean {
-    if (payload && payload.channel_id) {
+    if (payload?.channel_id) {
       return payload.channel_id === channelId.toString();
     }
     return false;
@@ -76,7 +76,7 @@ export class TwitchEbsTools {
     const epochTimeNowInSeconds = <Date>(
       (<unknown>Math.round(new Date().getTime() / 1000))
     );
-    if (payload && payload.exp) {
+    if (payload?.exp) {
       return epochTimeNowInSeconds <= payload.exp;
     }
     return false;
@@ -92,7 +92,7 @@ export class TwitchEbsTools {
    *
    */
   static verifyRole(payload: TwitchPayload, role: TwitchRole): boolean {
-    if (payload && payload.role) {
+    if (payload?.role) {
       return payload.role === role;
     }
     return false;
