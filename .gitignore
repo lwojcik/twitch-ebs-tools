@@ -57,3 +57,5 @@ src/*.js
 docs/
 
 package-lock.json
+
+.eslintcache
