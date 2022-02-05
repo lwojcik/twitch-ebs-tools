@@ -28,7 +28,8 @@
   "browser": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "build": "npm run lint && npm run format && npm run test && npm run clean && npm run compile",
+    "build": "npm run lint && npm run checkFormat && npm run test && npm run clean && npm run compile",
+    "checkFormat": "prettier --check .",
     "clean": "rimraf dist/*",
     "clearTestCache": "jest --clearCache",
     "compile": "rollup -c",
@@ -46,7 +47,10 @@
   },
   "lint-staged": {
     "package.json": "sort-package-json",
-    "*.ts": "eslint --cache --fix"
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write ."
+    ]
   },
   "dependencies": {
     "jsonwebtoken": "^8.5.1"
@@ -60,6 +64,7 @@
     "husky": "^7.0.4",
     "jest": "^27.4.7",
     "lint-staged": "^12.3.3",
+    "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.66.1",
     "rollup-plugin-dts": "^4.1.0",
