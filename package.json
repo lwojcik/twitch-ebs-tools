@@ -56,14 +56,14 @@
     "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
-    "@types/jest": "^27.5.1",
+    "@types/jest": "^28.1.0",
     "@types/jsonwebtoken": "^8.5.8",
     "esbuild": "^0.14.39",
     "eslint": "^8.15.0",
     "eslint-config-lukemnet": "^1.0.1",
     "husky": "^8.0.1",
     "jest": "^28.1.0",
-    "lint-staged": "^12.4.1",
+    "lint-staged": "^13.0.0",
     "prettier": "^2.6.2",
     "rimraf": "^3.0.2",
     "rollup": "^2.74.0",
