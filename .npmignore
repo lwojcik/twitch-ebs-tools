@@ -2,6 +2,7 @@ src
 tsconfig.json
 tsconfig.eslint.json
 tslint.json
+.github
 .prettierrc
 tests
 coverage
