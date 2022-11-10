@@ -1,8 +1,9 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import dts from "rollup-plugin-dts";
+// eslint-disable-next-line import/no-extraneous-dependencies
 import esbuild from "rollup-plugin-esbuild";
-import externalGlobals from "rollup-plugin-external-globals";
 
-const name = require("./package.json").main.replace(/\.js$/, "");
+const name = "dist/index";
 
 const bundle = (config) => ({
   ...config,
@@ -10,6 +11,7 @@ const bundle = (config) => ({
   external: (id) => !/^[./]/.test(id),
 });
 
+// eslint-disable-next-line import/no-default-export
 export default [
   bundle({
     plugins: [
@@ -42,16 +44,13 @@ export default [
         sourceMap: false,
         minify: true,
       }),
-      externalGlobals({
-        jsonwebtoken: "jsonwebtoken",
-      }),
     ],
     output: {
       file: `${name}.umd.js`,
       format: "umd",
       name: "TwitchEbsTools",
       globals: {
-        jwt: "jsonwebtoken",
+        jsonwebtoken: "jsonwebtoken",
       },
     },
     context: "this",
