@@ -16,4 +16,7 @@ CODE_OF_CONDUCT.md
 CONTRIBUTING.md
 .eslintrc
 .eslintignore
-rollup.config.js
+rollup.config.mjs
+.prettierignore
+.husky
+.github
