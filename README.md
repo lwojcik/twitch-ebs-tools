@@ -216,28 +216,6 @@ const correctViewerOrBroadcasterRole =
 // true / false
 ```
 
-## Contributions
-
-Contributions of any kind are welcome.
-
-You can contribute to Twitch-ebs-tools by:
-
-- submiting bug reports or feature suggestions
-- improving documentation
-- submitting pull requests
-
-Before contributing be sure to read [Contributing Guidelines](https://github.com/lwojcik/twitch-ebs-tools/blob/master/CONTRIBUTING.md) and [Code of Conduct](https://github.com/lwojcik/twitch-ebs-tools/blob/master/CODE_OF_CONDUCT.md).
-
-## Contributors
-
-To all who contribute code, improve documentation, submit issues or feature requests - thank you for making Twitch-ebs-tools even better!
-
-We maintain an [AUTHORS](https://github.com/lwojcik/twitch-ebs-tools/blob/master/AUTHORS) file where we keep a list of all project contributors. Please consider adding your name there with your next PR.
-
-## License
-
-Licensed under MIT License. See [LICENSE](https://raw.githubusercontent.com/lukemnet/twitch-ebs-tools/master/LICENSE) for more information.
-
 ## Legal
 
 This project is not authored, affiliated or endorsed in any way by Twitch.tv.
