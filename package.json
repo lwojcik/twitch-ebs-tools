@@ -10,13 +10,13 @@
     "backend",
     "jwt"
   ],
-  "homepage": "https://github.com/lukemnet/twitch-ebs-tools#readme",
+  "homepage": "https://github.com/lwojcik/twitch-ebs-tools#readme",
   "bugs": {
-    "url": "https://github.com/lukemnet/twitch-ebs-tools/issues"
+    "url": "https://github.com/lwojcik/twitch-ebs-tools/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lukemnet/twitch-ebs-tools.git"
+    "url": "git+https://github.com/lwojcik/twitch-ebs-tools.git"
   },
   "license": "MIT",
   "author": {

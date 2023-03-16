@@ -1,8 +1,6 @@
 # twitch-ebs-tools
 
-[![npm (latest)](https://img.shields.io/npm/v/twitch-ebs-tools/latest.svg)](https://www.npmjs.com/package/twitch-ebs-tools)
-[![Build status](https://ci.appveyor.com/api/projects/status/8esgc2oj5wkmesvm/branch/master?svg=true)](https://ci.appveyor.com/project/lwojcik/twitch-ebs-tools/branch/master)
-[![codecov](https://codecov.io/gh/lukemnet/twitch-ebs-tools/branch/master/graph/badge.svg?token=AJnXZHKI3o)](https://codecov.io/gh/lukemnet/twitch-ebs-tools)
+> **As of 16 March 2023 this project is no longer maintained or updated.**
 
 Pack of useful functions for Twitch Extension Backend Services (EBS). It provides Twitch JWT verification methods and various validation strategies.
 
@@ -17,7 +15,7 @@ npm install twitch-ebs-tools
 ## Manual build
 
 ```bash
-git clone https://github.com/lukemnet/twitch-ebs-tools.git
+git clone https://github.com/lwojcik/twitch-ebs-tools.git
 cd twitch-ebs-tools
 npm install
 npm run build
@@ -228,13 +226,13 @@ You can contribute to Twitch-ebs-tools by:
 - improving documentation
 - submitting pull requests
 
-Before contributing be sure to read [Contributing Guidelines](https://github.com/lukemnet/twitch-ebs-tools/blob/master/CONTRIBUTING.md) and [Code of Conduct](https://github.com/lukemnet/twitch-ebs-tools/blob/master/CODE_OF_CONDUCT.md).
+Before contributing be sure to read [Contributing Guidelines](https://github.com/lwojcik/twitch-ebs-tools/blob/master/CONTRIBUTING.md) and [Code of Conduct](https://github.com/lwojcik/twitch-ebs-tools/blob/master/CODE_OF_CONDUCT.md).
 
 ## Contributors
 
 To all who contribute code, improve documentation, submit issues or feature requests - thank you for making Twitch-ebs-tools even better!
 
-We maintain an [AUTHORS](https://github.com/lukemnet/twitch-ebs-tools/blob/master/AUTHORS) file where we keep a list of all project contributors. Please consider adding your name there with your next PR.
+We maintain an [AUTHORS](https://github.com/lwojcik/twitch-ebs-tools/blob/master/AUTHORS) file where we keep a list of all project contributors. Please consider adding your name there with your next PR.
 
 ## License
 
